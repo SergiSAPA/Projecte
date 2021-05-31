@@ -139,7 +139,7 @@ while True:
         cognom1 = input("Introdueix el primer cognom de l'empleat: ")
         cognom2 = input("Introdueix el segon cognom de l'empleat: ")
         dni = input("Introdueix el DNI de l'empleat: ")
-        connexio = mysql.connector.connect(host='3.219.163.64', user='projecte', passwd='P@ssw0rd', db='fixatges')
+        connexio = mysql.connector.connect(host='ipdelservidor', user='projecte', passwd='P@ssw0rd', db='fixatges')
         cursor = connexio.cursor()
             
         insert = "INSERT INTO treballadors (nom, cognom1, cognom2, dni) VALUES (%s, %s, %s, %s)"
@@ -150,7 +150,7 @@ while True:
     if opcio == "c" or opcio == "C":
         if get_fingerprint():
             
-            connexio = mysql.connector.connect(host='3.219.163.64', user='projecte', passwd='P@ssw0rd', db='fixatges')
+            connexio = mysql.connector.connect(host='ipdelservidor', user='projecte', passwd='P@ssw0rd', db='fixatges')
             cursor = connexio.cursor()
             
             insert = "INSERT INTO fixatges (id, datahora) VALUES (%s, NOW())"%(finger.finger_id)
@@ -173,7 +173,7 @@ while True:
             print("Hi ha hagut un error al esborrar l'empremta")
             
     if opcio == "e" or opcio == "E":
-        connexio = mysql.connector.connect(host='3.219.163.64', user='projecte', passwd='P@ssw0rd', db='fixatges')
+        connexio = mysql.connector.connect(host='ipdelservidor', user='projecte', passwd='P@ssw0rd', db='fixatges')
         cursor = connexio.cursor()
         select = "SELECT ID, Nom, Cognom1, Cognom2 FROM treballadors"
         cursor.execute(select)
